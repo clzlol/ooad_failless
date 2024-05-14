@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 public class MemberController {
     private final MemberService memberService;
 
-    @GetMapping("/member/signin")
+    @PostMapping("/member/signin")
     public MemberInfoDto signin(@RequestBody MemberSigninDto memberSigninDto) throws Exception{
         return memberService.signin(memberSigninDto);
     }
 
-    @GetMapping("/member/signup")
+    @PostMapping("/member/signup")
     public MemberInfoDto signup(@RequestBody MemberSigninDto memberSigninDto) throws Exception{
         return memberService.signup(memberSigninDto);
     }
