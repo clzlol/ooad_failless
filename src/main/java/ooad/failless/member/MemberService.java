@@ -45,4 +45,16 @@ public class MemberService {
                 .manager(member.isManager())
                 .build();
     }
+
+    public boolean changeManager(String id) {
+        Member member = memberRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("wrong member id"));
+        memberRepository.save(Member.builder()
+                        .id(member.getId())
+                        .pw(member.getPw())
+                        .manager(!member.isManager())
+                        .build());
+        return member.isManager();
+    }
+
 }

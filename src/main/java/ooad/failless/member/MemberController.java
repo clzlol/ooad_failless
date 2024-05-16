@@ -20,4 +20,9 @@ public class MemberController {
         return memberService.signup(memberSigninDto);
     }
 
+    @GetMapping("/member/manage")
+    public boolean changeManager(@RequestParam String id) {
+        return memberService.changeManager(id);
+    }
+
 }
